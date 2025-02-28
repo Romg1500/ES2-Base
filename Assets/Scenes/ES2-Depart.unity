@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1473837, y: 0.0000000147384345, z: -0.0000000021961888, w: 0.9890794}
+  m_LocalRotation: {x: 0.14738353, y: 0.000000101206496, z: -0.000000015080861, w: 0.9890794}
   m_LocalPosition: {x: 0, y: 27, z: -27.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -583,7 +583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684824835}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1473837, y: 0.000000014738434, z: -0.0000000021961886, w: 0.9890794}
+  m_LocalRotation: {x: 0.14738353, y: 0.000000101206496, z: -0.000000015080861, w: 0.9890794}
   m_LocalPosition: {x: 0, y: 27, z: -27.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1729,6 +1729,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4027833008474733190, guid: 20c0aa25022fd474ebac164d517acaa3,
+        type: 3}
+      propertyPath: m_Bones.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4027833008474733190, guid: 20c0aa25022fd474ebac164d517acaa3,
+        type: 3}
+      propertyPath: m_Bones.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8298684462619277302, guid: 20c0aa25022fd474ebac164d517acaa3,
         type: 3}
       propertyPath: m_Name
@@ -1789,14 +1799,71 @@ PrefabInstance:
     - {fileID: 164292815257963523, guid: 20c0aa25022fd474ebac164d517acaa3, type: 3}
     - {fileID: 4113944047967099689, guid: 20c0aa25022fd474ebac164d517acaa3, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8298684462619277302, guid: 20c0aa25022fd474ebac164d517acaa3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8632670369948054859}
+    - targetCorrespondingSourceObject: {fileID: 8298684462619277302, guid: 20c0aa25022fd474ebac164d517acaa3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8632670369948054860}
   m_SourcePrefab: {fileID: 100100000, guid: 20c0aa25022fd474ebac164d517acaa3, type: 3}
+--- !u!1 &3635746710492279696 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8298684462619277302, guid: 20c0aa25022fd474ebac164d517acaa3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3635746710492279695}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8632670369948054854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9024026950669430544, guid: 20c0aa25022fd474ebac164d517acaa3,
     type: 3}
   m_PrefabInstance: {fileID: 3635746710492279695}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8632670369948054859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635746710492279696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: bb7b48d53e318284eb6574f8faa1328f,
+    type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &8632670369948054860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3635746710492279696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0ca323a6feddbb40819966085af56ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
