@@ -17,6 +17,7 @@ public class ControleSousMarin : MonoBehaviour
     private Animator _animator;
 
     private float _rotationVelocity;
+    private float _animationMult;
 
     void Start()
     {
@@ -25,17 +26,22 @@ public class ControleSousMarin : MonoBehaviour
         _vitesseBase = 0.3f;
         _vitesseFast = 0.6f;
 
+
     }
     void OnShift(){
         _vitesseAct = _vitesseFast;
+        _animationMult = 3f;
+        _animator.SetFloat("AnimMult", _animationMult);
 
     }
     void OnMove(InputValue directionBase)
     {
+        _animationMult = 1f;
+        _animator.SetFloat("AnimMult", _animationMult);
+        
         _vitesseAct = _vitesseBase;
         Vector3 directionAvecVitesse = directionBase.Get<Vector3>() * _vitesseAct;
         directionInput = new Vector3(0f, directionAvecVitesse.y, directionAvecVitesse.z);
-        /*transform.Translate(directionInput * Time.deltaTime);*/
     }
 
     void FixedUpdate()
@@ -47,7 +53,6 @@ public class ControleSousMarin : MonoBehaviour
 
         Vector3 vitesseSurPlane = new Vector3(0f, _rb.velocity.z, 0f);
 
-        _animator.SetFloat("Vitesse", _vitesseAct);
         _animator.SetFloat("Mouvement", vitesseSurPlane.magnitude);
     }
 }
