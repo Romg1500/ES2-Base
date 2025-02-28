@@ -6,7 +6,10 @@ using UnityEngine.Windows;
 
 public class ControleSousMarin : MonoBehaviour
 {
-    private float _vitesse;
+    private float _vitesseAct;
+
+    private float _vitesseBase;
+    private float _vitesseFast;
     private Rigidbody _rb;
 
     private Vector3 directionInput;
@@ -19,37 +22,32 @@ public class ControleSousMarin : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _animator = GetComponent<Animator>(); 
-        _vitesse = 2f;
-    }
+        _vitesseBase = 0.3f;
+        _vitesseFast = 0.6f;
 
+    }
+    void OnShift(){
+        _vitesseAct = _vitesseFast;
+
+    }
     void OnMove(InputValue directionBase)
     {
-        Vector2 directionAvecVitesse = directionBase.Get<Vector2>() * _vitesse;
-        directionInput = new Vector3(0f, 0f, directionAvecVitesse.y);
-        _animator.SetFloat("Mouvement", directionInput.magnitude);
+        _vitesseAct = _vitesseBase;
+        Vector3 directionAvecVitesse = directionBase.Get<Vector3>() * _vitesseAct;
+        directionInput = new Vector3(0f, directionAvecVitesse.y, directionAvecVitesse.z);
+        /*transform.Translate(directionInput * Time.deltaTime);*/
     }
 
     void FixedUpdate()
     {
         
         Vector3 mouvement = directionInput;
-        float rotation = 0f;
-        
-        if (directionInput.magnitude > 0f)
-        {
-            // calculer rotation cible
-            float rotationCible = Vector3.SignedAngle(-Vector3.forward, directionInput, Vector3.up);
-            // faire le changement plus graduel avec une interpolation
-            rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, rotationCible, ref _rotationVelocity, 0.12f);
-            // appliquer la rotation cible directement
-            _rb.MoveRotation(Quaternion.Euler(0.0f, rotation, 0.0f));
-        }
         
         _rb.AddForce(mouvement, ForceMode.VelocityChange);
 
-        Vector3 vitesseSurPlane = new Vector3(_rb.velocity.x, 0f, _rb.velocity.z);
+        Vector3 vitesseSurPlane = new Vector3(0f, _rb.velocity.z, 0f);
 
-        _animator.SetFloat("Vitesse", vitesseSurPlane.magnitude);
-        _animator.SetFloat("Deplacement", vitesseSurPlane.magnitude);
+        _animator.SetFloat("Vitesse", _vitesseAct);
+        _animator.SetFloat("Mouvement", vitesseSurPlane.magnitude);
     }
 }
